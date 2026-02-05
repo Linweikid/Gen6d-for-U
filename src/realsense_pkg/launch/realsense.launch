@@ -1,0 +1,84 @@
+<launch>
+  <!-- ================= 公共参数（可共用） ================= -->
+  <arg name="color_width" default="640" />
+  <arg name="color_height" default="480" />
+  <arg name="color_fps" default="30" />
+  <arg name="depth_width" default="640" />
+  <arg name="depth_height" default="480" />
+  <arg name="depth_fps" default="30" />
+
+  <!-- ================= 相机 1 =================-->
+  <group ns="camera1">
+    <!-- nodelet manager（名字必须唯一） -->
+    <node pkg="nodelet" type="nodelet"
+          name="realsense_manager_camera1"
+          args="manager"
+          output="screen"/>
+
+    <node pkg="nodelet" type="nodelet"
+          name="realsense2_camera"
+          args="load realsense2_camera/RealSenseNodeFactory realsense_manager_camera1"
+          output="screen" respawn="true">
+
+      <param name="serial_no" value="234322307736" type="str"/>
+
+      <param name="enable_color" value="true" type="bool"/>
+      <param name="color_width" value="$(arg color_width)" type="int"/>
+      <param name="color_height" value="$(arg color_height)" type="int"/>
+      <param name="color_fps" value="$(arg color_fps)" type="int"/>
+
+      <param name="enable_depth" value="true" type="bool"/>
+      <param name="depth_width" value="$(arg depth_width)" type="int"/>
+      <param name="depth_height" value="$(arg depth_height)" type="int"/>
+      <param name="depth_fps" value="$(arg depth_fps)" type="int"/>
+
+      <param name="align_depth" value="true" type="bool"/>
+
+      <param name="enable_infra1" value="false" type="bool"/>
+      <param name="enable_infra2" value="false" type="bool"/>
+      <param name="enable_gyro" value="false" type="bool"/>
+      <param name="enable_accel" value="false" type="bool"/>
+
+      <param name="enable_pointcloud" value="false" type="bool"/>
+      <param name="color_format" value="bgr8" type="str"/>
+    </node>
+  </group>
+
+  <!-- ================= 相机 2 ================= -->
+  <group ns="camera2">
+    <node pkg="nodelet" type="nodelet"
+          name="realsense_manager_camera2"
+          args="manager"
+          output="screen"/>
+
+    <node pkg="nodelet" type="nodelet"
+          name="realsense2_camera"
+          args="load realsense2_camera/RealSenseNodeFactory realsense_manager_camera2"
+          output="screen" respawn="true">
+
+      <param name="serial_no" value="338522300792" type="str"/>
+      <!-- <param name="serial_no" value="327522301155" type="str"/> -->
+      <param name="enable_color" value="true" type="bool"/>
+      <param name="color_width" value="$(arg color_width)" type="int"/>
+      <param name="color_height" value="$(arg color_height)" type="int"/>
+      <param name="color_fps" value="$(arg color_fps)" type="int"/>
+
+      <param name="enable_depth" value="true" type="bool"/>
+      <param name="depth_width" value="$(arg depth_width)" type="int"/>
+      <param name="depth_height" value="$(arg depth_height)" type="int"/>
+      <param name="depth_fps" value="$(arg depth_fps)" type="int"/>
+
+      <param name="align_depth" value="true" type="bool"/>
+
+      <param name="enable_infra1" value="false" type="bool"/>
+      <param name="enable_infra2" value="false" type="bool"/>
+      <param name="enable_gyro" value="false" type="bool"/>
+      <param name="enable_accel" value="false" type="bool"/>
+
+      <param name="enable_pointcloud" value="false" type="bool"/>
+      <param name="color_format" value="bgr8" type="str"/>
+    </node>
+  </group>
+
+</launch>
+

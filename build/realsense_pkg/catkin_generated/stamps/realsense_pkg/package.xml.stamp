@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <!-- 1. 包基本信息（必须和文件夹名一致） -->
+  <name>realsense_pkg</name>
+  <version>0.0.0</version>
+  <description>RealSense D455 图像读取</description>
+  <maintainer email="your_email@xxx.com">your_name</maintainer> <!-- 替换为你的信息 -->
+  <license>MIT</license>
+
+  <!-- 2. 编译依赖（编译时需要的包） -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>message_filters</build_depend>
+
+  <!-- 3. 运行依赖（运行时需要的包） -->
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>message_filters</exec_depend>
+
+  <!-- 4. ROS版本兼容（可选） -->
+  <export>
+    <build_type>catkin</build_type>
+  </export>
+</package>

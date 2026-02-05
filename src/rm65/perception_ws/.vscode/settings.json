@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/media/jt/WYM/rm65_assembly/perception_ws/devel/lib/python3/dist-packages",
+        "/home/jt/hust_dual_ur5e_v4/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/media/jt/WYM/rm65_assembly/perception_ws/devel/lib/python3/dist-packages",
+        "/home/jt/hust_dual_ur5e_v4/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

@@ -1,0 +1,8 @@
+prefix=/media/zxr/WYM/rm65_assembly/perception_ws/devel
+
+Name: rm_doc
+Description: Description of rm_doc
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

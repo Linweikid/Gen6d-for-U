@@ -1,0 +1,8 @@
+prefix=/media/zxr/WYM/rm65_assembly/perception_ws/install
+
+Name: force_position_control
+Description: Description of force_position_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

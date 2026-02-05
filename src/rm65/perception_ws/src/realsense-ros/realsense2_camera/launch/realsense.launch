@@ -1,0 +1,52 @@
+<launch>
+  <!-- 定义参数（修复序列号格式 + 保留原分辨率/帧率配置） -->
+  <arg name="serial_no" default="234322307736" />  <!-- 移除内层单引号，外部无需额外引号 -->
+  <arg name="color_width" default="640" />
+  <arg name="color_height" default="480" />
+  <arg name="color_fps" default="30" />
+  <arg name="depth_width" default="640" />
+  <arg name="depth_height" default="480" />
+  <arg name="depth_fps" default="30" />
+
+  <!-- 命名空间（与官方一致，方便话题识别） -->
+  <arg name="camera_namespace" default="camera" />
+  <group ns="$(arg camera_namespace)">
+    <!-- 启动nodelet管理器（命名与官方对齐，避免冲突） -->
+    <node pkg="nodelet" type="nodelet" name="realsense2_camera_manager" args="manager" output="screen"/>
+
+    <!-- 启动realsense2_camera节点（核心修复：Nodelet类型改为RealSenseNodeFactory） -->
+    <node pkg="nodelet" type="nodelet" name="realsense2_camera" 
+          args="load realsense2_camera/RealSenseNodeFactory realsense2_camera_manager" 
+          output="screen" respawn="true">
+
+      <!-- 相机序列号（直接传字符串，无需额外单引号） -->
+      <param name="serial_no" value="$(arg serial_no)" type="str"/>
+
+      <!-- 彩色相机配置（显式指定类型） -->
+      <param name="color_width" value="$(arg color_width)" type="int"/>
+      <param name="color_height" value="$(arg color_height)" type="int"/>
+      <param name="color_fps" value="$(arg color_fps)" type="int"/>
+      <param name="enable_color" value="true" type="bool"/>
+
+      <!-- 深度相机配置（显式指定类型） -->
+      <param name="depth_width" value="$(arg depth_width)" type="int"/>
+      <param name="depth_height" value="$(arg depth_height)" type="int"/>
+      <param name="depth_fps" value="$(arg depth_fps)" type="int"/>
+      <param name="enable_depth" value="true" type="bool"/>
+
+      <!-- 关闭其他流（显式指定类型） -->
+      <param name="enable_infra1" value="false" type="bool"/>
+      <param name="enable_infra2" value="false" type="bool"/>
+      <param name="enable_gyro" value="false" type="bool"/>
+      <param name="enable_accel" value="false" type="bool"/>0
+
+      <!-- 深度图对齐彩色图（开启后会生成aligned_depth话题） -->
+      <param name="align_depth" value="true" type="bool"/>
+
+      <!-- 额外兜底配置（避免参数缺失导致异常） -->
+      <param name="enable_pointcloud" value="false" type="bool"/>
+      <param name="enable_sync" value="false" type="bool"/>
+      <param name="color_format" value="bgr8" type="str"/>  <!-- 适配ROS常用格式 -->
+    </node>
+  </group>
+</launch>

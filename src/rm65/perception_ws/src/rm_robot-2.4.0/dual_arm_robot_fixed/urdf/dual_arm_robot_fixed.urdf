@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="dual_arm_robot_fixed">
+
+  <!-- 1. 添加虚拟根链接（无惯性参数） -->
+  <link name="world">
+    <!-- 不需要惯性参数 -->
+  </link>
+  <!-- 2. 添加从虚拟根链接到base_link的固定关节 -->
+  <joint name="world_to_base_link" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <!-- 关节原点（如果base_link原本在世界坐标系原点，这里可不设置） -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.002029 -0.0052849 0.182"
+        rpy="0 0 0" />
+      <mass
+        value="12.558" />
+      <inertia
+        ixx="0.45964"
+        ixy="9.8502E-07"
+        ixz="-0.00022633"
+        iyy="0.47124"
+        iyz="-6.4994E-06"
+        izz="0.70947" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link_lbase">
+    <inertial>
+      <origin
+        xyz="-0.00043286 -3.2797E-05 0.060009"
+        rpy="0 0 0" />
+      <mass
+        value="0.84006" />
+      <inertia
+        ixx="0.001723"
+        ixy="2.4865E-06"
+        ixz="-3.6776E-05"
+        iyy="0.0017068"
+        iyz="1.7182E-06"
+        izz="0.00090402" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/link_lbase.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/link_lbase.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_lbase"
+    type="fixed">
+    <origin
+      xyz="0 0.085 1.162"
+      rpy="-1.5708 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_lbase" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="Link_left1">
+    <inertial>
+      <origin
+        xyz="2.2868E-07 0.021108 -0.025187"
+        rpy="0 0 0" />
+      <mass
+        value="0.59354" />
+      <inertia
+        ixx="0.0012661"
+        ixy="-1.463E-08"
+        ixz="-1.0732E-08"
+        iyy="0.0011816"
+        iyz="-0.00021119"
+        izz="0.00056133" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_left1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.2405"
+      rpy="0 0 0" />
+    <parent
+      link="link_lbase" />
+    <child
+      link="Link_left1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.106"
+      upper="3.106"
+      effort="60"
+      velocity="3.14" />
+  </joint>
+
+
+
+
+  <link
+    name="Link_left2">
+    <inertial>
+      <origin
+        xyz="0.15226 8.9275E-07 -0.0059028"
+        rpy="0 0 0" />
+      <mass
+        value="1.4" />
+      <inertia
+        ixx="0.00063253"
+        ixy="4.3105E-10"
+        ixz="0.00042162"
+        iyy="0.0020527"
+        iyz="-3.2771E-09"
+        izz="0.0019528" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_left2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="Link_left1" />
+    <child
+      link="Link_left2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.268"
+      upper="2.268"
+      effort="60"
+      velocity="3.14" />
+  </joint>
+  <link
+    name="Link_left3">
+    <inertial>
+      <origin
+        xyz="4.4478E-06 -0.059593 0.010869"
+        rpy="0 0 0" />
+      <mass
+        value="0.7" />
+      <inertia
+        ixx="0.00063737"
+        ixy="-5.8493E-08"
+        ixz="-3.3661E-08"
+        iyy="0.00015649"
+        iyz="-0.00014461"
+        izz="0.00061418" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_left3"
+    type="revolute">
+    <origin
+      xyz="0.256 0 0"
+      rpy="0 0 1.5708" />
+    <parent
+      link="Link_left2" />
+    <child
+      link="Link_left3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.356"
+      upper="2.356"
+      effort="30"
+      velocity="3.14" />
+  </joint>
+  <link
+    name="Link_left4">
+    <inertial>
+      <origin
+        xyz="1.1442E-06 -0.018043 -0.021539"
+        rpy="0 0 0" />
+      <mass
+        value="0.6" />
+      <inertia
+        ixx="0.00028594"
+        ixy="2.4155E-09"
+        ixz="-1.3789E-09"
+        iyy="0.00026273"
+        iyz="4.4235E-05"
+        izz="0.00011989" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_left4"
+    type="revolute">
+    <origin
+      xyz="0 -0.21 0.00029993"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Link_left3" />
+    <child
+      link="Link_left4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.106"
+      upper="3.106"
+      effort="10"
+      velocity="3.92" />
+  </joint>
+  <link
+    name="Link_left5">
+    <inertial>
+      <origin
+        xyz="3.8935E-06 -0.059381 0.0070684"
+        rpy="0 0 0" />
+      <mass
+        value="0.6" />
+      <inertia
+        ixx="0.00035054"
+        ixy="-3.1343E-08"
+        ixz="-1.7513E-08"
+        iyy="0.00010493"
+        iyz="-7.8242E-05"
+        izz="0.00033448" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_left5"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link_left4" />
+    <child
+      link="Link_left5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.234"
+      upper="2.234"
+      effort="10"
+      velocity="3.92" />
+  </joint>
+  <link
+    name="Link_left6">
+    <inertial>
+      <origin
+        xyz="0.00081825 1.3389E-05 -0.012683"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="2.1019E-05"
+        ixy="-2.2872E-08"
+        ixz="-2.4452E-08"
+        iyy="1.7986E-05"
+        iyz="-1.0135E-08"
+        izz="3.1728E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_left6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_left6"
+    type="revolute">
+    <origin
+      xyz="0 -0.144 -0.00029972"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="Link_left5" />
+    <child
+      link="Link_left6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-6.28"
+      upper="6.28"
+      effort="10"
+      velocity="3.92" />
+  </joint>
+  
+  <link name="Link_tool_left">
+  </link>
+  <joint name="Joint_tool_left" type="fixed">
+    <parent link="Link_left6"/>
+    <child link="Link_tool_left"/>
+    <origin xyz="0 0 0" rpy="0 0 -1.5708"/>
+  </joint>
+
+
+
+
+  <link
+    name="link_rbase">
+    <inertial>
+      <origin
+        xyz="-0.00043298 -3.2823E-05 0.060028"
+        rpy="0 0 0" />
+      <mass
+        value="0.83977" />
+      <inertia
+        ixx="0.0017222"
+        ixy="2.4863E-06"
+        ixz="-3.6783E-05"
+        iyy="0.0017059"
+        iyz="1.7174E-06"
+        izz="0.00090401" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/link_rbase.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/link_rbase.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_rbase"
+    type="fixed">
+    <origin
+      xyz="0 -0.085 1.162"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_rbase" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="Link_right1">
+    <inertial>
+      <origin
+        xyz="2.2833E-07 0.021108 -0.025187"
+        rpy="0 0 0" />
+      <mass
+        value="0.59354" />
+      <inertia
+        ixx="0.0012661"
+        ixy="-1.4634E-08"
+        ixz="-1.0735E-08"
+        iyy="0.0011816"
+        iyz="-0.00021119"
+        izz="0.00056133" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_right1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.2405"
+      rpy="0 0 0" />
+    <parent
+      link="link_rbase" />
+    <child
+      link="Link_right1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.106"
+      upper="3.106"
+      effort="60"
+      velocity="3.14" />
+  </joint>
+
+
+
+  <link
+    name="Link_right2">
+    <inertial>
+      <origin
+        xyz="0.15226 1.0392E-06 -0.0059028"
+        rpy="0 0 0" />
+      <mass
+        value="1.4" />
+      <inertia
+        ixx="0.00063253"
+        ixy="1.822E-09"
+        ixz="0.00042162"
+        iyy="0.0020527"
+        iyz="-3.4108E-09"
+        izz="0.0019528" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_right2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="Link_right1" />
+    <child
+      link="Link_right2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.268"
+      upper="2.268"
+      effort="60"
+      velocity="3.14" />
+  </joint>
+  <link
+    name="Link_right3">
+    <inertial>
+      <origin
+        xyz="4.4478E-06 -0.059593 0.010869"
+        rpy="0 0 0" />
+      <mass
+        value="0.7" />
+      <inertia
+        ixx="0.00063737"
+        ixy="-5.8494E-08"
+        ixz="-3.3661E-08"
+        iyy="0.00015649"
+        iyz="-0.00014461"
+        izz="0.00061418" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_right3"
+    type="revolute">
+    <origin
+      xyz="0.256 0 0"
+      rpy="0 0 1.5708" />
+    <parent
+      link="Link_right2" />
+    <child
+      link="Link_right3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.356"
+      upper="2.356"
+      effort="30"
+      velocity="3.14" />
+  </joint>
+  <link
+    name="Link_right4">
+    <inertial>
+      <origin
+        xyz="1.1228E-06 -0.017743 -0.021536"
+        rpy="0 0 0" />
+      <mass
+        value="0.6" />
+      <inertia
+        ixx="0.00028583"
+        ixy="2.6299E-09"
+        ixz="-1.5947E-09"
+        iyy="0.00026264"
+        iyz="4.4222E-05"
+        izz="0.00011987" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_right4"
+    type="revolute">
+    <origin
+      xyz="0 -0.21 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Link_right3" />
+    <child
+      link="Link_right4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.106"
+      upper="3.106"
+      effort="10"
+      velocity="3.92" />
+  </joint>
+  <link
+    name="Link_right5">
+    <inertial>
+      <origin
+        xyz="3.9095E-06 -0.059381 0.0073724"
+        rpy="0 0 0" />
+      <mass
+        value="0.6" />
+      <inertia
+        ixx="0.00035054"
+        ixy="-3.1343E-08"
+        ixz="-1.7492E-08"
+        iyy="0.00010493"
+        iyz="-7.8242E-05"
+        izz="0.00033448" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_right5"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link_right4" />
+    <child
+      link="Link_right5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.234"
+      upper="2.234"
+      effort="10"
+      velocity="3.92" />
+  </joint>
+  <link
+    name="Link_right6">
+    <inertial>
+      <origin
+        xyz="0.00081853 1.3343E-05 -0.012683"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="2.1019E-05"
+        ixy="-2.2882E-08"
+        ixz="-2.4455E-08"
+        iyy="1.7986E-05"
+        iyz="-1.016E-08"
+        izz="3.1728E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_arm_robot_fixed/meshes/Link_right6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_right6"
+    type="revolute">
+    <origin
+      xyz="0 -0.144 0"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="Link_right5" />
+    <child
+      link="Link_right6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-6.28"
+      upper="6.28"
+      effort="10"
+      velocity="3.92" />
+  </joint>
+  
+  <link name="Link_tool_right">
+  </link>
+  <joint name="Joint_tool_right" type="fixed">
+    <parent link="Link_right6"/>
+    <child link="Link_tool_right"/>
+    <origin xyz="0 0 0" rpy="0 0 -1.5708"/>
+  </joint>
+
+</robot>

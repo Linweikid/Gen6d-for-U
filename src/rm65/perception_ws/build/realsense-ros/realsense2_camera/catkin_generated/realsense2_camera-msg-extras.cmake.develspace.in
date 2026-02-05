@@ -1,0 +1,2 @@
+set(realsense2_camera_MESSAGE_FILES "/media/zxr/WYM/rm65_assembly/perception_ws/src/realsense-ros/realsense2_camera/msg/IMUInfo.msg;/media/zxr/WYM/rm65_assembly/perception_ws/src/realsense-ros/realsense2_camera/msg/Extrinsics.msg;/media/zxr/WYM/rm65_assembly/perception_ws/src/realsense-ros/realsense2_camera/msg/Metadata.msg")
+set(realsense2_camera_SERVICE_FILES "/media/zxr/WYM/rm65_assembly/perception_ws/src/realsense-ros/realsense2_camera/srv/DeviceInfo.srv")

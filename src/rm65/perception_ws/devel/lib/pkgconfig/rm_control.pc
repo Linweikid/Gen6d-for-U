@@ -1,0 +1,8 @@
+prefix=/media/zxr/WYM/rm65_assembly/perception_ws/devel
+
+Name: rm_control
+Description: Description of rm_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: actionlib_msgs

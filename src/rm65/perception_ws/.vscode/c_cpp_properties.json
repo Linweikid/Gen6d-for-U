@@ -1,0 +1,38 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/jt/hust_dual_ur5e_v4/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/media/jt/WYM/rm65_assembly/perception_ws/devel/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/control_robot/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/easy_aruco/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/livox_laser_simulation/include/**",
+        "/media/jt/WYM/rm65_assembly/perception_ws/src/pose_estimation_pkg/include/**",
+        "/media/jt/WYM/rm65_assembly/perception_ws/src/realsense-ros/realsense2_camera/include/**",
+        "/media/jt/WYM/rm65_assembly/perception_ws/src/rm_robot-2.4.0/rm_msgs/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/universal_robot/roboticsgroup_gazebo_plugins/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/robotiq-noetic-devel/robotiq_2f_gripper_action_server/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/robotiq-noetic-devel/robotiq_2f_gripper_control/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/robotiq-noetic-devel/robotiq_3f_gripper_articulated_gazebo_plugins/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/robotiq-noetic-devel/robotiq_3f_gripper_control/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/robotiq-noetic-devel/robotiq_ethercat/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/robotiq-noetic-devel/robotiq_ft_sensor/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/Universal_Robots_ROS_Driver/ur_calibration/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/universal_robot/ur_kinematics/include/**",
+        "/home/jt/hust_dual_ur5e_v4/src/Universal_Robots_ROS_Driver/ur_robot_driver/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

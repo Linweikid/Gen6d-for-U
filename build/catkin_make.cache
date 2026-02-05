@@ -1,0 +1,2 @@
+pose_estimation_pkg:realsense-ros/realsense2_camera:realsense-ros/realsense2_description:realsense_pkg
+-DCATKIN_DEVEL_PREFIX=/home/jt/disk/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/jt/disk/catkin_ws/install -G Unix Makefiles

@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/zxr/WYM/rm65_assembly/perception_ws/src/rm_robot-2.4.0/rm_driver/src/cJSON.c
+string.h
+-
+stdio.h
+-
+math.h
+-
+stdlib.h
+-
+float.h
+-
+limits.h
+-
+ctype.h
+-
+cJSON.h
+/media/zxr/WYM/rm65_assembly/perception_ws/src/rm_robot-2.4.0/rm_driver/src/cJSON.h
+
+/media/zxr/WYM/rm65_assembly/perception_ws/src/rm_robot-2.4.0/rm_driver/src/cJSON.h
+
